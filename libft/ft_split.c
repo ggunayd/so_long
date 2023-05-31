@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 11:10:25 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/10 18:10:02 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:19:29 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:19:38 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	wordcounter(const char *s, char delimiter)
+unsigned int	str_in_array(const char *s, char delimiter)
 {
-	unsigned int	word;
+	unsigned int	qnt;
 
-	word = 0;
+	qnt = 0;
 	while (*s)
 	{
 		if (*s == delimiter)
@@ -25,10 +25,10 @@ unsigned int	wordcounter(const char *s, char delimiter)
 		{
 			while (*s != delimiter && *s)
 				s++;
-			word++;
+			qnt++;
 		}
 	}
-	return (word);
+	return (qnt);
 }
 
 char	**ft_split(char const *s, char c)
@@ -39,10 +39,10 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	arr = (char **) ft_calloc(wordcounter(s, c) + 1, sizeof(char *));
+	arr = (char **) ft_calloc(str_in_array(s, c) + 1, sizeof(char *));
 	if (!arr)
 		return (NULL);
-	a = 0;
+	a = -1;
 	while (*s)
 	{
 		if (*s == c)
@@ -52,27 +52,22 @@ char	**ft_split(char const *s, char c)
 			j = 0;
 			while (*s != c && *s && ++j)
 				s++;
-			arr[++a -1] = (char *) ft_calloc(j + 1, sizeof(char));
-			ft_strlcpy(arr[a -1], s - j, j + 1);
+			arr[++a] = (char *) ft_calloc(j + 1, sizeof(char));
+			ft_strlcpy(arr[a], s - j, j + 1);
 		}
 	}
 	return (arr);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char **str = ft_split("Merhaba 42 Kocaeli",' ');
-// 	int i;
-// 	i = 0;
-// 	while(i < 3)
-// 	{
-// 	printf("%s\n",str[i]);
-// 	i++;
-// 	}
-// }
-
-// s dizisini c karakteri ile ayırır.
-// "s" parametresinden gelen char dizisini "c" parametresinden gelen
-// karakter ile ayırır.
+/*
+int main()
+{
+    char *str = "ayberk bir salak";
+    char **words = ft_split(str, ' ');
+    int i = 0;
+    while (words[i])
+    {
+        printf("%s\n", words[i]);
+        i++;
+    }
+}
+*/

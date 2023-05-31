@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 09:15:32 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/01 13:37:34 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:10 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:09:39 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,7 @@
 
 int	ft_isprint(int c)
 {
-	return (c >= 32 && c <= 126);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	printf("%d",ft_isprint('\0'));
-// }
-
-// Fonksiyona girilen parametrenin ekrana
-// yazılıp yazılmadığını döndürür.(0 veya 1 şeklinde)

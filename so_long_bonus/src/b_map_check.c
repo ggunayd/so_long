@@ -6,7 +6,7 @@
 /*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 03:30:13 by ggunaydi          #+#    #+#             */
-/*   Updated: 2023/05/30 03:59:17 by ggunaydi         ###   ########.fr       */
+/*   Updated: 2023/05/31 20:51:33 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	check_map(t_hp *hp, int x, int y)
 				return (1);
 			if ((x == 0 || x == hp->max_x - 1) && hp->map[y][x] != '1')
 				return (1);
-			if ((y == 0 || y == hp->max_y -1) && hp->map[y][x] != '1')
+			if ((y == 0 || y == hp->max_y - 1) && hp->map[y][x] != '1')
 				return (1);
 		}
 		if (ft_strlen(hp->map[y]) != hp->max_x)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 15:21:12 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/10 18:07:50 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:19:02 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:18:23 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,21 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	nb;
-
-	nb = n;
-	if (nb < 0)
+	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		nb = (nb * -1);
+		if (n == -2147483648)
+		{
+			ft_putchar_fd('2', fd);
+			n %= 1000000000;
+		}
+		n = -n;
 	}
-	if (nb < 10)
-		ft_putchar_fd(nb + 48, fd);
-	if (nb > 9)
+	if (n >= 10)
 	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }
-
-//#include <fcntl.h>
-
-// int main()
-// {
-// 	int fd = open("/Users/sguntepe/Desktop/test.txt",O_WRONLY);
-// 	ft_putstr_fd("Merhaba ",fd);
-// 	ft_putnbr_fd(42,fd);
-// 	ft_putstr_fd(" Kocaeli",fd);
-// }
-
-// n parametresine girilen int değeri fd dosyasına yazar.
-// // Belirtilen dosya tanımlayıcısına (fd) "n" parametresinden gelen
-// int değer yazılır.

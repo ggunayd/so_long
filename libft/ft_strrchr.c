@@ -3,37 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 16:45:45 by sguntepe          #+#    #+#             */
-/*   Updated: 2022/11/26 17:00:55 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 15:05:22 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/10/24 17:18:55 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief String'in icinde char ariyor, buldugunda bulunan
+ *  karakterin "adresini" donduruyor.
+ * 
+ * @param str String
+ * @param c Char
+ * @return char* 
+ */
+#include "libft.h"
+
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
+	char	*start;
 
-	i = ft_strlen(s);
-	while (i >= 0)
+	start = (char *)s;
+	while (*s)
+		s++;
+	while (s >= start)
 	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)s + i);
-		i--;
+		if (*((char *)s) == (char)c)
+			return ((char *)s);
+		s--;
 	}
 	return (NULL);
 }
+/*
+int	main()
+{
+	char	string[] = "gulbahar";
+	char	c = 'b';
 
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char s[] = "Merhaba42Kocaeli";
-// 	printf("%s",ft_strrchr(s,'4'));
-// }
-
-// Bulunan karakterden "c" itibaren sayar ve döndürür.
-// strchr ile aynı sonucu verir.
-// (Bu olayı tersten başlayarak yapar)
+	printf("Aranan: %s\n", string);
+	printf("Arayici: %c\n", c);
+	printf("Bulunduktan sonraki hali: %s\n", ft_strrchr(string, c));
+}
+*/

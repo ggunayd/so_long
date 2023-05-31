@@ -3,41 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 09:17:53 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/31 07:58:23 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 15:14:49 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/10/27 15:18:53 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *s)
 {
-	char	*ptr;
+	char	*str;
 	size_t	i;
 
-	ptr = (char *)malloc(ft_strlen(s1) + 1);
-	if (!ptr)
+	str = (char *)malloc(ft_strlen(s) + 1);
+	if (!str)
 		return (NULL);
 	i = 0;
-	while (s1[i])
+	while (s[i])
 	{
-		ptr[i] = s1[i];
+		str[i] = s[i];
 		i++;
 	}
-	ptr[i] = 0;
-	return (ptr);
+	str[i] = 0;
+	return (str);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char s1[] = "merhaba";
-// 	printf("%s",ft_strdup(s1));
-
-// }
-
-// "s1" parametresinden gelen dizinin bir kopyasını 
-// malloc ile açılan belleğe kopyalar.

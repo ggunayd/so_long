@@ -6,7 +6,7 @@
 /*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 04:01:06 by ggunaydi          #+#    #+#             */
-/*   Updated: 2023/05/30 04:19:27 by ggunaydi         ###   ########.fr       */
+/*   Updated: 2023/05/31 21:59:38 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	move(int dir_x, int dir_y, t_hp *hp)
 		hp->px += dir_x;
 		hp->py += dir_y;
 		hp->step++;
-		ft_printf("\rStep count : %d     ", hp->step);
+		ft_printf("\rStep count : %d", hp->step);
 	}
 }
 

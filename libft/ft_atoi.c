@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 23:06:26 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/01 13:27:47 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:50:38 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/10/27 16:34:18 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,32 @@
 
 int	ft_atoi(const char *str)
 {
-	int	d;
-	int	s;
+	int	i;
+	int	res;
+	int	sign;
 
-	d = 1;
-	s = 0;
-	while (*str == '\t' || *str == '\n' || *str == '\v'
-		|| *str == '\f' || *str == '\r' || *str == ' ')
-			str++;
-	if (*str == '-')
+	sign = 1;
+	i = 0;
+	res = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		d = d * -1;
-		str++;
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	else if (*str == '+')
-		str++;
-	if (*str == '-' || *str == '+')
-		return (0);
-	while (*str >= '0' && *str <= '9')
+	while (str[i] >= 48 && str[i] <= '9' && str[i])
 	{
-		s = (s * 10);
-		s = s + (*str - '0');
-		str++;
+		res = (str[i] - 48) + (res * 10);
+		i++;
 	}
-	return (s * d);
+	return (sign * res);
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	char *str = " -123";
-// 	printf("%d",ft_atoi(str));
-// }
-
-// Parametreden gelen char dizisini int değere çevirir.
+/*
+int main()
+{
+     char str[] = "-123456";
+	 printf("%d", ft_atoi(str));
+}
+*/

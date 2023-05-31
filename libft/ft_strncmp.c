@@ -3,39 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 09:33:28 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/17 20:53:40 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 15:06:42 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/10/25 13:54:32 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+/**
+ * @brief Stringin icindeki ayni karakterleri atliyor, farkli bir karakter
+ *  buldugunda bu s1'in karakterini s2'nin karakterini cikariyor ve
+ *  desimal degerini donduruyor.
+ * 
+ * @param s1 
+ * @param s2 
+ * @param size 
+ * @return int Desimal degerini donduruyor.
+ */
+#include "libft.h"
+
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
 	size_t	i;
 
-	i = 0;
-	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
+	i = 1;
+	if (!n)
+		return (0);
+	while (*str1 == *str2 && i++ < n && *str1 && *str2)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		str1++;
+		str2++;
 	}
-	return (0);
+	return ((unsigned char)*str1 - (unsigned char)*str2);
 }
+/*
+int	main()
+{
+	char	s1[] = "123de";
+	char	s2[] = "123f";
 
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char s1[] = "42Merhaba";
-// 	char s2[] = "42Kocaeli";
-// 	printf("%d",ft_strncmp(s1,s2,2)); 
-// }
-
-// "s1" parametresi ve "s2" parametresi (iki string değeri)
-// "n" değeri kadar karşılaştırılır.
-// Aynı ise 0 değeri farklı ise 0'dan farklı bir değer girilir. 
-// NUll karakter gördüğü zaman durur.
+	printf("Karsilastirilanlar: s1[%s] & s2[%s]\n", s1, s2);
+	printf("Karsilastirma sonrasi desimal degeri \
+farki: %d\n", ft_strncmp(s1, s2, 4));
+}
+*/

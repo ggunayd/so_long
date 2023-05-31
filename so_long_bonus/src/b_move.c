@@ -6,7 +6,7 @@
 /*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 03:18:44 by ggunaydi          #+#    #+#             */
-/*   Updated: 2023/05/30 03:52:23 by ggunaydi         ###   ########.fr       */
+/*   Updated: 2023/05/31 21:23:26 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@ void	move(int dir_x, int dir_y, t_hp *hp)
 	}
 }
 
+void	enemy_hack(t_hp *hp, int x, int y)
+{
+	while (++x < hp->max_x)
+	{
+		y = -1;
+		while (++y < hp->max_y)
+		{
+			if (hp->map[y][x] == 'V')
+				hp->map[y][x] = '0';
+		}
+	}
+}
+
 int	keyhook(int keycode, t_hp *hp)
 {
 	if (keycode == 53)
@@ -43,5 +56,7 @@ int	keyhook(int keycode, t_hp *hp)
 		move(1, 0, hp);
 	else if (keycode == 13)
 		move(0, -1, hp);
+	else if(keycode == 7)
+		enemy_hack(hp, -1, -1);
 	return (0);
 }

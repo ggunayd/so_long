@@ -3,51 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 08:37:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2022/11/26 17:00:55 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:20:30 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 13:14:22 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
-	char	*final;
+	char	*ret;
+	size_t	n;
 
-	if (s)
-	{		
-		if (start >= ft_strlen(s) || len == 0 || ft_strlen(s) == 0)
-			return (ft_strdup(""));
-		i = 0;
-		while (i < len && s[i + start] != '\0')
-			i++;
-		final = (char *) malloc((sizeof(char) * i) + 1);
-		if (!(final))
+	if (!s)
+		return (NULL);
+	n = ft_strlen(s);
+	if (start >= n)
+	{
+		ret = malloc(sizeof(char));
+		if (!ret)
 			return (NULL);
-		j = 0;
-		while (j < i)
-		{
-			final[j] = s[start + j];
-			j++;
-		}
-		final[j] = '\0';
-		return (final);
+		*ret = '\0';
 	}
-	return (NULL);
+	else
+	{
+		if ((n - start) < len)
+		len = n - start;
+		ret = malloc(sizeof(char) * len + 1);
+		if (!ret)
+			return (NULL);
+		ft_strlcpy(ret, (char *)(s + start), len + 1);
+	}
+	return (ret);
 }
 
-// #include <stdio.h>
+/*
+int main()
+{
+    char a[] = "gorkem";
+	int		i;
 
-// int main()
-// {
-// 	char s[] = "Merhaba42Kocaeli";
-
-// 	printf("%s",ft_substr(s,7,9));
-// }
-
-// s dizisinde start değeri ile başlanıp len değerine kadar 
-// bellekte yer açar ve s dizisinden kopyalar.
+	i = 3;
+	// printf("ft_:%s\n", ft_substr(a, 546, 3));
+	printf("sizeof'un icindeki deger: %lu\n", sizeof(unsigned char));
+}
+*/

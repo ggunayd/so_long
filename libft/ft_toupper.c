@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 16:46:15 by sguntepe          #+#    #+#             */
-/*   Updated: 2022/11/29 13:07:50 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:28 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/10/21 15:40:03 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+		return (c -= 32);
+	return (c);
 }
-
-// Fonksiyona girilen parametre değerini büyük harf ise küçültür, 
-// küçük harf ise olduğu gibi döndürür.

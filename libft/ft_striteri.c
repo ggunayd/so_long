@@ -3,45 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 17:46:06 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/12 22:53:43 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:19:42 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 13:21:57 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	i;
+	size_t	index;
 
-	if (s)
+	index = 0;
+	if (s != NULL)
 	{
-		i = 0;
-		while (s[i])
+		while (index < ft_strlen(s))
 		{
-			f(i, &s[i]);
-			i++;
+			f(index, &s[index]);
+			index++;
 		}
 	}
 }
-
-// #include <stdio.h>
-
-// void ft_42(unsigned int a,char *c)
+/*
+// void fsdf(unsigned int i, char *c)
 // {
-// 	*c = ft_toupper(*c);
+//     *c -= 32;
 // }
-// #include <stdio.h>
-
 // int main()
 // {
-// 	char str[] = "Merhaba42";
-// 	printf("%s\n", str);
-// 	ft_striteri(str, ft_42);
-// 	printf("%s\n", str);
+    
+//     char str[] = "MUKEMMELfatih";
+//     ft_striteri(str, fsdf);
+//     puts(str);
 // }
-
-// "s" parametresinden gelen karakter dizisinin her karakterine
-// (f) fonksiyonu uygulanir.
+*/

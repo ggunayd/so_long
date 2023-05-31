@@ -3,50 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 17:27:54 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/31 07:58:05 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:43 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:48:55 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t n)
+/**
+ * @brief Source ile dest'i birlestirip uzunlugunu dondurur.
+ * 
+ * @param dst Destination
+ * @param src Source
+ * @param dstsize Dst'nin uzunlugunu gondermemiz lazim.
+ * @return size_t 
+ */
+#include "libft.h"
+
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
-	size_t	d;
-	size_t	s;
+	unsigned int	c;
+	unsigned int	d;
 
-	d = ft_strlen(dst);
-	s = ft_strlen((char *)src);
-	i = 0;
-	if (n <= d)
+	if (dstsize <= ft_strlen(dst))
+		return (dstsize + ft_strlen(src));
+	c = ft_strlen(dst);
+	d = 0;
+	while (src[d] != '\0' && c + 1 < dstsize)
 	{
-		return (n + s);
+		dst[c] = src[d];
+		c++;
+		d++;
 	}
-	while (src[i] != '\0' && d + i + 1 < n)
-	{
-		dst[d + i] = src[i];
-		i++;
-	}
-	dst[d + i] = '\0';
-	return (d + s);
+	dst[c] = '\0';
+	return (ft_strlen(dst) + ft_strlen(&src[d]));
 }
+/*
+int	main()
+{
+	char	dst[] = "1234";
+	char	src[] = "gul";
 
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char *dest = "Merhaba";
-// 	char *src = "42Kocaeli";
-
-// 	printf("%zu",ft_strlcat(dest,src,5));
-// }
-
-// dst dizisinin son karakteri null'dan sonra 
-// src dizisini ekliyor. dst'den n kadar ilerler.
-
-// "src" parametresinden gelen karakter dizisini "dst" parametresinden gelen
-// diziye ekliyor."n" parametresi ise "dst" dizisinin maksimum boyutunu
-// belirler.
+	printf("dst uzunlugu: %zu\n", ft_strlen(dst));
+	printf("src uzunlugu: %zu\n", ft_strlen(src));
+	printf("birlestirilmis uzunluk: %zu\n", ft_strlcat(dst, src, ft_strlen(dst)));
+}
+*/

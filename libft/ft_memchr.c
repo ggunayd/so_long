@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 10:52:57 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/31 08:00:53 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 15:08:27 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:12:21 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,11 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*str;
+	unsigned char	*temp;
 
-	str = (unsigned char *)s;
+	temp = (unsigned char *)s;
 	while (n--)
-	{
-		if (*(str++) == (unsigned char )c)
-			return ((void *)(str - 1));
-	}
+		if (*(temp++) == (unsigned char)c)
+			return ((void *)(temp - 1));
 	return (NULL);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char *s = "42Kocaeli";
-// 	printf("%s", (char *)ft_memchr(s,'a',6));
-// }
-
-// "s" parametresi ile gösterilen bellek bölgesinin "n" 
-// parametre değeri kadar
-// ilk byte'ında "c" parametresi ile gösterilen değerin
-// (unsigned char olarak
-// değerlendirilir) ilk geçtiği yeri arar ve bu bellek 
-// adresini gösteren
-// bir işaretçi geri döndürür.

@@ -3,25 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 11:03:15 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/14 11:54:15 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:34 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:21:07 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (s[i])
-	{
+	while (str[i])
 		i++;
-	}
 	return (i);
 }
-
-// "s" parametresinden gelen karakter dizisinin uzunluğunu döndürür.

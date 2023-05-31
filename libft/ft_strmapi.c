@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 17:46:15 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/17 20:57:13 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:20:21 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:21:27 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,17 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (str);
 }
 
-// #include <stdio.h>
-
-// char	ft_42(unsigned int a,char c)
+/*
+// char fsdf(unsigned int i, char c)
 // {
-// 	return(ft_toupper(c));
+//     c -= 32;
+//     return c;
 // }
-
 // int main()
 // {
-// 	char s[] = "merhaba";
-// 	char *str;
-// 	str = ft_strmapi(s,ft_42);
-
-// 	printf("%s",str);
+//     char *str = "mukemmelfatih";
+//     char *newstr= ft_strmapi(str, fsdf);
+//     puts(newstr);
+//     free(newstr);
 // }
-
-// ft_calloc fonksiyonu ile bellekte yer açılır ve "s" parametresinden gelen
-// karakter dizisinin her indisine "f" parametresindeki fonksiyon uygulanır.
+*/

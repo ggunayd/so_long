@@ -3,27 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 15:20:38 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/10 18:05:09 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:18:47 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:13:48 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "fcntl.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
 
-// #include <fcntl.h>
-
-// int main()
-// {
-// 	int fd = open("/Users/sguntepe/Desktop/test.txt",O_WRONLY);
-// 	ft_putchar_fd('S',fd);
-// }
-
-// Belirtilen dosya tanımlayıcısına (fd) "c" parametresinden gelen
-// karakteri yazar.
+// belirtilen dosya tanimlayicisina (fd) c karakterini yazar.
+/*
+int main()
+{
+    int fd = open("salakayberk.txt", O_RDWR);
+    ft_putchar_fd('a', fd);
+}
+*/

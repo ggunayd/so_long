@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 15:20:35 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/10 18:07:03 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:18:57 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:17:45 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,9 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s, fd);
-	write(fd, "\n", 1);
+	if (s)
+	{
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\n', fd);
+	}
 }
-
-//#include <fcntl.h>
-
-// int main()
-// {
-// 	int fd = open("/Users/sguntepe/Desktop/test.txt",O_WRONLY);
-// 	ft_putendl_fd("Merhaba 42 Kocaeli",fd);
-// }
-
-// Belirtilen dosya tanımlayıcısına (fd) "s" parametresinden gelen
-// char dizisi yazılır ve bir alt satıra geçer.

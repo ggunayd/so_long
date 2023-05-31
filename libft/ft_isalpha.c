@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 10:44:08 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/01 13:31:40 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:00 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/10/24 16:17:56 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,7 @@
 
 int	ft_isalpha(int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	printf("%d",ft_isalpha('B'));
-// }
-
-// Fonksiyona girilen parametrenin alfabetik karakter olup olmadığını döndürür.
-// (0 veya 1 şeklinde)

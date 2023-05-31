@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 09:19:15 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/01 13:26:51 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:18:02 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:07:52 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(ptr, count * size);
 	return (ptr);
 }
-
-// Her birinin boyutu byte olarak ifade edilen ve size parametre değeri kadar
-// olan bellekten count parametre değeri kadar sayıda bellek bloğunu tahsis eder
-// ve tahsis edilen belleğin tamamını sıfır değeri ile doldurur.
-// Malloc fonksiyonu ile bellekte alan açıp 
-// ft_bzero fonksiyonu ile null atayarak döndürüyoruz.
+//count eleman sayisi
+// size eleman byte boyutu.
+// 19 da malloc ile alan olusturuyoruz.
+// 22 de tamamini 0 ile dolduruyoruz, ve return ediyoruz.

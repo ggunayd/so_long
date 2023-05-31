@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 16:46:04 by sguntepe          #+#    #+#             */
-/*   Updated: 2022/11/29 13:07:35 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:32 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:22:18 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+		return (c += 32);
+	return (c);
 }
-
-// Fonksiyona girilen parametre değerini küçük harf ise büyütür, 
-// büyük harf ise olduğu gibi döndürür.

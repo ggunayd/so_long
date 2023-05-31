@@ -3,37 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 13:55:24 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/10 17:58:14 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:18 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 13:38:28 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+/**
+ * @brief yazarsiniz
+ * 
+ * @param dest 
+ * @param src 
+ * @param n 
+ * @return void* 
+ */
+#include "libft.h"
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (!dst && !src)
-		return (NULL);
-	if (dst < src)
-		ft_memcpy(dst, src, n);
-	else if (dst > src)
+	char	*d;
+	char	*s;
+	size_t	i;
+
+	d = (char *)dst;
+	s = (char *)src;
+	i = 0;
+	if (d == s)
+		return (d);
+	if (s < d)
 	{
-		while (n--)
-			*((unsigned char *)(dst + n)) = *((unsigned char *)(src + n));
+		i = len;
+		while (i--)
+			((char *)d)[i] = ((char *)s)[i];
 	}
-	return (dst);
+	else
+	{
+		i = 0;
+		while (i < len)
+		{
+			((char *)d)[i] = ((char *)s)[i];
+			i++;
+		}
+	}
+	return (d);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char str[] = "kocaeli";
-
-// 	printf("%s",(char *)ft_memmove(str+2,str,3));
-// }
-
-// Memcopy ile aynı işlevi yapar fakat 
-// bellekte overlop olmaması için tersten kopyalar.

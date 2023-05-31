@@ -3,32 +3,38 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+         #
+#    By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/07 10:17:12 by sguntepe          #+#    #+#              #
-#    Updated: 2022/11/25 09:24:53 by sguntepe         ###   ########.fr        #
+#    Created: 2022/12/01 12:56:09 by ggunaydi          #+#    #+#              #
+#    Updated: 2022/12/01 12:59:13 by ggunaydi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-FLAG = -Wall -Wextra -Werror
-SRC = $(shell find . ! -name "ft_lst*.c" -name "ft_*.c")
-BONUS = $(shell find . -name "ft_lst*.c")
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
 
-CC		= gcc
+SRC = $(shell find . -type f ! -name "ft_lst*.c" -name "ft_*.c")
+
+OBJ = $(SRC:.c=.o)
+BSRC	= $(wildcard ft_lst*.c)
+B_OBJ	= $(BSRC:.c=.o)
+
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJ)
+		ar -rc $(NAME) $(OBJ)
 
 all: $(NAME)
 
-$(NAME):
-	@$(CC) $(FLAG) -c $(SRC)
-	@ar rc $(NAME) *.o
-bonus:
-	@$(CC) $(FLAG) -c $(BONUS)
-	@ar rc $(NAME) *.o
-clean:
-	@/bin/rm -f  *.o *.out
+bonus: $(OBJ) $(B_OBJ)
+	ar -rc $(NAME) $(OBJ) $(B_OBJ)
+clean: 
+	rm -f *.o
+
 fclean: clean
-	@/bin/rm -f $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
 

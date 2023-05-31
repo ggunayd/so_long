@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/20 15:00:54 by sguntepe          #+#    #+#             */
-/*   Updated: 2022/11/26 17:00:55 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/19 12:17:52 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:11:57 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,12 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (!lst)
-		return (0);
-	while (lst->next != NULL)
-	{
-		lst = lst->next;
-	}
-	return (lst);
+	t_list	*ptr;
+
+	ptr = lst;
+	if (!ptr)
+		return (NULL);
+	while (ptr->next)
+		ptr = ptr->next;
+	return (ptr);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-//  t_list *node1,*node2,*node3;
-
-// 	node1 = (t_list *)malloc(sizeof(t_list));
-// 	node2 = (t_list *)malloc(sizeof(t_list));
-// 	node3 = (t_list *)malloc(sizeof(t_list));
-
-// 	node1->next = node2;
-// 	node2->next = node3;
-// 	node3->next = NULL;
-// 	node3->content = "42Kocaeli";
-
-//  printf("%s",(char *)ft_lstlast(node1)->content);
-// }
-
-// lst struct yapısının bağlı olduğu son struct yapısını döndürür.

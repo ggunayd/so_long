@@ -3,42 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 14:44:47 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/14 11:53:41 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:37 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/10/25 13:57:26 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
 	i = 0;
-	if (n > 0)
+	if (size > 0)
 	{
-		while (i < (n - 1) && src[i])
+		while (src[i] && i < (size - 1))
 		{
-			dest[i] = src[i];
+			dst[i] = src[i];
 			i++;
 		}
-		dest[i] = '\0';
+		dst[i] = 0;
 	}
-	return (ft_strlen (src));
+	while (src[i])
+		i++;
+	return (i);
 }
-
-// #include <stdio.h>
 
 // int main()
 // {
-// 	char dest[] = "Merhaba";
-// 	char src[] = "42Kocaeli";
-
-// 	printf("%zu",ft_strlcpy(dest,src,4));
+//     char dst[] = "gül";
+//     char src[] = "bahar";
+//     size_t dstsize = 4;
+//     ft_strlcpy(dst,src,dstsize);
+//     printf("%s",dst);
 // }
-
-// "src" parametresinden gelen karakter dizisini "n" parametresindeki
-// değer kadar "dest" parametresinden gelen diziye kopyalar
-// ve src'nin uzunluğunu döndürür.

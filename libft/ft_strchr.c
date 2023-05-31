@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 12:22:12 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/10 18:14:08 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:19:36 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 13:04:59 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include "libft.h"
+
+/**
+ * @brief String'in icinde char ariyor, buldugunda bulunan
+ *  karakterden itibaren geri kalanini donduruyor.
+ * 
+ * @param str String
+ * @param c Char
+ * @return char* 
+ */
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -27,15 +37,14 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-// #include <stdio.h>
+/*
+int	main()
+{
+	char	string[] = "gulbahar";
+	char	c = 'b';
 
-// int main()
-// {
-// 	char str[] = "Merhaba42";
-// 	printf("%s",ft_strchr(str,'b'));
-
-// }
-
-// "s" parametresi ile gösterilen karakter dizisinde "c" parametresi ile
-// gösterilen değerin (unsigned char olarak değerlendirilir) ilk geçtiği
-// yeri arar ve bu bellek adresini gösteren bir işaretçi geri döndürür.
+	printf("Aranan: %s\n", string);
+	printf("Arayici: %c\n", c);
+	printf("Bulunduktan sonraki hali: %s\n", ft_strchr(string, c));
+}
+*/

@@ -3,64 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 17:45:55 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/01 13:39:40 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/14 12:18:32 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/10/21 15:31:51 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_numlen(int num)
+int	get_len(int nbr)
 {
-	int	i;
+	int	nbr_len;
 
-	if (num == 0)
-		return (1);
-	i = 0;
-	while (num > 0 || num < 0)
+	nbr_len = 0;
+	if (nbr <= 0)
+		nbr_len++;
+	while (nbr)
 	{
-		num /= 10;
-		i++;
+		nbr /= 10;
+		nbr_len++;
 	}
-	return (i);
+	return (nbr_len);
 }
 
 char	*ft_itoa(int n)
 {
-	int		len;
-	char	*dizi;
-	long	nbr;
+	char	*str;
+	int		digit;
 
-	nbr = n;
-	len = ft_numlen(nbr);
-	if (n < 0)
-	{
-		len++;
-		nbr = -nbr;
-	}
-	dizi = malloc(sizeof(char) * len + 1);
-	if (!dizi)
+	digit = get_len(n);
+	str = (char *) ft_calloc(digit + 1, sizeof(char));
+	if (!str)
 		return (NULL);
-	dizi[len] = '\0';
-	while (nbr > 0)
-	{
-		dizi[--len] = nbr % 10 + 48;
-		nbr /= 10;
-	}
-	if (n < 0)
-		dizi[0] = '-';
 	if (n == 0)
-		dizi[0] = '0';
-	return (dizi);
+		*str = '0';
+	else if (n < 0)
+	{
+		if (n == -2147483648)
+		{
+			ft_strlcpy(str, "-2147483648", digit + 1);
+			return (str);
+		}
+		str[0] = '-';
+		n *= -1;
+	}
+	while (n != 0)
+	{
+		*(str + --digit) = (n % 10) + '0';
+		n = n / 10;
+	}
+	return (str);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	printf("%s",ft_itoa(-123));
-// }
-
-// Parametreden gelen int "n" değerini char dizisine çevirir.

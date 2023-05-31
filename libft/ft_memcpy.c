@@ -3,21 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 12:33:41 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/31 08:00:34 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:15 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/12/01 12:47:04 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Source'ü destination'a n kadar kopyaliyor(uzerine yaziyor).
+ * 
+ * ETC: ft_("bahar", "gul", 3) --> "bahar" -> "gular". 
+ * 
+ * @param dest 
+ * @param src 
+ * @param n 
+ * @return void* 
+ */
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
 	if (!dst && !src)
 		return (0);
+	if (dst == src)
+		return (dst);
 	i = 0;
 	while (i < n)
 	{
@@ -26,21 +38,12 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	char str[10] = "kocaeli";
-// 	char dst[10];
-// 	// printf("%s",(char *)ft_memcpy(str+2,str,4)); 
-// //(overlap durumu vardır.)
-
-// 	ft_memcpy(dst,str,7);
-// 	printf("%s",dst);
-// }
-
-// "src" parametresi ile gösterilen bellek bölgesindeki karakterleri,
-// "n" parametre değeri kadar uzunlukta, "dst" parametresindeki
-// bellek bölgesine kopyalar.
-
-// Sadece 33. ve 35. satırları 
+/*
+int	main()
+{
+	char dest[] = "bahar";
+	char src[] = "gul";
+	size_t n = 3;
+	printf("%s",ft_memcpy(dest,src,n));
+}
+*/

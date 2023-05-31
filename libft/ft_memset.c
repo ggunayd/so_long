@@ -3,38 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: ggunaydi <ggunaydi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 11:40:19 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/10 18:02:49 by sguntepe         ###   ########.fr       */
+/*   Created: 2022/10/10 12:51:46 by ggunaydi          #+#    #+#             */
+/*   Updated: 2022/10/24 16:31:13 by ggunaydi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+/**
+ * @brief String'e karakter yazma. -> "Gulbahar" --> 'p' * 4 => "ppppahar"
+ * 
+ * @param b 
+ * @param c 
+ * @param len 
+ * @return void* 
+ */
+#include "libft.h"
+
+void	*ft_memset(void *str, int c, size_t n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < len)
+	while (n--)
 	{
-		((unsigned char *)b)[i] = c;
-		i++;
+		((unsigned char *)str)[i++] = c;
 	}
-	return (b);
+	return (str);
 }
+/*
+#include <stdio.h>
+int main()
+{
+	char b[] = "Gulbahar";
+	int c;
 
-// #include <stdio.h>
-
-// int	main(){
-
-// 	char dizi[] = "Merhaba42";
-// 	printf("%s",(char *)ft_memset(dizi,'c',3));
-
-//     return 0;
-// }
-
-// "c" parametresi ile gösterilen bellek bölgesindeki karakteri dest
-// parametresindeki bellek bölgesinin ilk "n" parametre değeri kadar byte'ına
-// kopyalar.
+	c = '3';
+	size_t len = 3;
+	printf("%s",ft_memset(str, c, len));
+}
+*/
